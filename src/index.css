@@ -1,0 +1,98 @@
+@import 'tailwindcss';
+
+:root {
+  --surface-solid: #ffffff;
+  --surface-sunk: #eef3fa;
+  --ink: #2b1d14;
+  --ink-soft: #6b5a4c;
+  --line: rgba(58, 111, 192, 0.22);
+  --gold: #c98a14;
+  --coral: #e2553a;
+  --blue: #3a6fc0;
+  --green: #1f7a4a;
+  --tile: #ffffff;
+  --win: #1f9d5a;
+  --lose: #d0473a;
+  color-scheme: light;
+}
+
+@theme inline {
+  --font-display: 'Fredoka', 'Kantumruy Pro', system-ui, sans-serif;
+  --font-sans: 'Nunito', 'Kantumruy Pro', system-ui, sans-serif;
+  --font-moul: 'Moul', 'Kantumruy Pro', serif;
+
+  --color-surface-solid: var(--surface-solid);
+  --color-sunk: var(--surface-sunk);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-line: var(--line);
+  --color-gold: var(--gold);
+  --color-coral: var(--coral);
+  --color-blue: var(--blue);
+  --color-green: var(--green);
+  --color-tile: var(--tile);
+  --color-win: var(--win);
+  --color-lose: var(--lose);
+}
+
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Wooden table top. */
+body {
+  margin: 0;
+  min-height: 100dvh;
+  font-family: var(--font-sans);
+  color: var(--ink);
+  background-color: #6a4026;
+  background-image:
+    radial-gradient(ellipse at 50% 20%, rgba(255, 210, 150, 0.18), transparent 60%),
+    repeating-linear-gradient(180deg, transparent 0 148px, rgba(0, 0, 0, 0.28) 148px 150px),
+    repeating-linear-gradient(178deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 6px),
+    repeating-linear-gradient(181deg, rgba(0, 0, 0, 0.05) 0 2px, transparent 2px 11px),
+    linear-gradient(180deg, #84522f, #5c371f);
+  background-attachment: fixed;
+}
+
+:lang(km) {
+  line-height: 1.75;
+}
+:lang(km) .km-tight {
+  line-height: 1.5;
+}
+
+@layer components {
+.paper {
+  background: #fff;
+  box-shadow:
+    0 2px 0 rgba(58, 111, 192, 0.15),
+    0 18px 36px -16px rgba(0, 0, 0, 0.6);
+}
+}
+
+/* Green felt where the dice are rolled. */
+.felt {
+  background:
+    radial-gradient(ellipse at 50% 30%, rgba(255, 255, 255, 0.12), transparent 65%),
+    repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.05) 0 2px, transparent 2px 6px),
+    #1f7a4a;
+  box-shadow:
+    inset 0 0 0 3px #1a6a40,
+    inset 0 0 0 5px rgba(255, 216, 74, 0.7),
+    inset 0 8px 24px rgba(0, 0, 0, 0.35),
+    0 18px 36px -16px rgba(0, 0, 0, 0.6);
+}
+
+button:focus-visible,
+[role='radio']:focus-visible {
+  outline: 3px solid #ffd84a;
+  outline-offset: 3px;
+}
+
+.gold-text {
+  background: linear-gradient(180deg, #ffe08a 0%, #f0b93a 45%, #c27c12 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
